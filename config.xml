@@ -11,11 +11,9 @@
   <access origin="*"/>
   <allow-navigation href="*"/>
   <allow-navigation href="http://*/*"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src: 'self' 'unsafe-inline' 'unsafe-eval'"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src &apos;self&apos; &apos;unsafe-inline&apos;; script-src: &apos;self&apos; &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;"/>
   <preference name="webviewbounce" value="false"/>
-
-        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
-        
+  <preference name="AndroidPersistentFileLocation" value="Compatibility"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="16"/>

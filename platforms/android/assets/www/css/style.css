@@ -1,1 +1,41 @@
 /* Empty. Add your own CSS if you like */
+
+.camera{
+	background-color: red;
+	width: 100vw;
+	height: 91vh;
+}
+
+.send{
+	background-color: blue;
+	width: 100vw;
+	height: 91vh;
+}
+
+.stat{
+	background-color: yellow;
+	width: 100vw;
+	height: 91vh;
+}
+
+.cadre{
+	width: 300px;
+	height: 300px;
+	padding-left: 10%; 
+}
+
+.photo{
+	width: 300px;
+	height: 300px;
+}
+
+.gallery{
+	width: 100px;
+	height: 100px;
+	background-color: purple;
+	padding-left: 0;
+	float: left;
+}
+.photoekd {
+	width:100%;
+}

@@ -7,10 +7,15 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+<!--     <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet"> -->
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+    
+    <!-- ionic/gallery -->
+   <!--  <script src="lib/ionic/js/ion-gallery.min.js"></script> -->
+    
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -23,47 +28,65 @@
     <script src="js/services.js"></script>
     <script src="js/app.js"></script>
   </head>
+
   <body ng-app="starter" class="platform-android platform-cordova platform-webview">
+    <ion-nav-bar class="bar-light">
+    
+    </ion-nav-bar>
 
-    <ion-pane>
+    <ion-nav-view view-title="Pauline app">
+    
       <ion-header-bar class="bar-stable">
-        <h1 class="title">Pauline Photo Shot</h1>
+        <h1 class="title">Pauline Camera</h1>
       </ion-header-bar>
-      <ion-content >
-      <div ng-controller="ExampleController" padding="true">
-		<button class="button button-full button-assertive" ng-click="takePhoto()">
-		Take Photo
-		</button>
-		<button class="button button-full button-assertive" ng-click="choosePhoto()">
-		Choose Photo
-		</button>
-    <input type="text" ng-model="imgURI">
-		<button class="button button-full button-assertive" ng-click="submit()">
-		Send Photo
-		</button>
-
-      <button class="button button-full button-assertive" ng-click="sendAll()">
-    Send ALL
-    </button>
-
 
       
-<!--     <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" style="text-align: center">
- -->    
- <p ng-repeat="img in images">
-      <img ng-src="{{img}}" />
-    </p>
-    
-    </div>
 
-   <!--   <div ng-controller="videoController" >
-    <button class="button button-full button-assertive" ng-click="captureVideo()"> take video</button>
-    <button class="button button-full button-assertive" ng-click="upload()"> take video</button>
-    </div> -->
-</ion-content>
-    </ion-pane>
+    </ion-nav-view>
+
+    <ion-view>
+      <ion-content>
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" on-swipe-right="nextSlide()" show-pager="false">
+          <ion-slide>
+            <div class="camera" ng-controller="ExampleController" padding="true">
+              <button class="button button-icon icon ion-camera col-offset-50" ng-click="takePhoto()">
+              </button> 
+
+
+              <p class="cadre" ng-repeat="img in images">
+                <img class="photo" ng-src="{{img}}" />
+              </p>
+            </div>
+
+          </ion-slide>
+          <ion-slide>
+            <div class="box send" ng-controller="ExampleController" padding="true"><h1>Gallery</h1>
+              <button class="button button-full button-assertive" ng-click="choosePhoto()">Choose Photo
+              </button>
+             <!--  <input type="text" ng-model="imgURI">
+              <button class="button button-full button-assertive" ng-click="submit()">Send Photo
+              </button> -->
+
+              <button class="button button-full button-assertive" ng-click="sendAll()">Send ALL
+              </button>
+         
+              <p class="photoekd" ng-repeat="img in images">
+                <img class="gallery" ng-src="{{img}}" />
+              </p>
+            
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="box stat" on-swipe-left="previousSlide()"><h1>Stat</h1></div>
+          </ion-slide>
+        </ion-slide-box>
+      </ion-content>
+    </ion-view>
+
   </body>
 </html>
+
+
 
 
 

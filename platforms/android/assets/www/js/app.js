@@ -31,13 +31,11 @@ $scope.images = [];
 
  $scope.takePhoto = function() {
   var options = {
-   quality: 75,
+   quality: 100,
    destinationType: Camera.DestinationType.DATA_URL,
    sourceType: Camera.PictureSourceType.CAMERA,
    allowEdit: true,
    encodingType: Camera.EncodingType.JPEG,
-   targetWidth: 300,
-   targetHeight: 300,
    popoverOptions: CameraPopoverOptions,
    saveToPhotoAlbum: true
   };
@@ -94,15 +92,13 @@ $scope.sendAll = function() {
 
  $scope.choosePhoto = function() {
   var options = {
-   quality: 75,
+   quality: 50,
    destinationType: Camera.DestinationType.DATA_URL,
    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
    allowEdit: true,
    encodingType: Camera.EncodingType.JPEG,
-   targetWidth: 300,
-   targetHeight: 300,
    popoverOptions: CameraPopoverOptions,
-   saveToPhotoAlbum: false
+   saveToPhotoAlbum: true
   };
 
   $cordovaCamera.getPicture(options).then(function(imageData) {
@@ -155,17 +151,6 @@ $scope.sendAll = function() {
 
         $scope.video.save = path;
         console.log($scope.video.save);
-
-
-
-
-
-
-
-
-
-
-
 
         }, function(err) {
       // An error occurred. Show a message to the user
