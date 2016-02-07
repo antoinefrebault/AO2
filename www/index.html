@@ -30,7 +30,7 @@
     <script src="js/script.js"></script>
   </head>
 
-  <body ng-app="starter">
+  <body ng-app="starter" ng-controller="SlideController">
     <ion-nav-bar class="bar-light">
     
     </ion-nav-bar>
@@ -47,12 +47,11 @@
 
     <ion-view>
       <ion-content>
-        <ion-slide-box show-pager="false">
+        <ion-slide-box show-pager="false" active-slide="myActiveSlide">
           <ion-slide>
             <div class="camera" ng-controller="ExampleController" padding="true">
               <button class="button button-icon icon ion-camera col-offset-50 radius" ng-click="takePhoto()">
               </button> 
-
 
               <p class="cadre" ng-repeat="img in images">
                 <img class="photo" ng-src="{{img}}" />
@@ -60,7 +59,7 @@
             </div>
 
           </ion-slide>
-          <ion-slide class="selected">
+          <ion-slide>
             <div class="box send" ng-controller="ExampleController" padding="true"><h1 class="col-offset-50">Story</h1>
               <button class="button button-full button-assertive" ng-click="choosePhoto()">Choose a photo
               </button>
@@ -72,10 +71,8 @@
               </button>
          
               <p class="gallery" ng-repeat="img in images">
-                <img class="gallery-item" ng-src="{{img}}" />
+                <img class="gallery-item" ng-src="{{img}}" ng-click="remove($scope, {{img}})" />
               </p>
-             <button class="button button-full button-assertive" ng-click="removeAll()">remove ALL
-              </button>
             </div>
           </ion-slide>
           <ion-slide>

@@ -23,7 +23,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'uploadService'])
  });
 })
 
-
+.controller('SlideController', function($scope) {
+  
+  $scope.myActiveSlide = 1;
+  
+})
 
 .controller("ExampleController", function($scope, $cordovaCamera, $http, upload) {
 
@@ -107,6 +111,10 @@ $scope.sendAll = function() {
 
   $scope.removeAll = function(){
     $scope.images = [];
+  }
+
+  $scope.remove = function() {
+    unset($scope.images[$scope])
   }
 
   $cordovaCamera.getPicture(options).then(function(imageData) {
