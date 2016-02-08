@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngCordova', 'uploadService'])
+angular.module('starter', ['ionic', 'ngCordova', 'chartService','chart.js'])
 
 .run(function($ionicPlatform) {
  $ionicPlatform.ready(function() {
@@ -29,7 +29,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'uploadService'])
   
 })
 
-.controller("ExampleController", function($scope, $cordovaCamera, $http, upload) {
+.controller("ExampleController", function($scope, $cordovaCamera, $http) {
 
 $scope.images = [];
 
@@ -138,6 +138,36 @@ $scope.sendAll = function() {
 
 
  }
+})
+
+.controller("chartController",function($scope,$http,chart){
+
+//this controller use chart service to call api with response 
+    var self = this;
+
+
+
+    chart.create()
+      .success(function(data) {
+        self.ads = data[0].view;
+        $scope.vide = data[0].view;
+        console.log();
+
+        // $scope.data.push($scope.vide);
+
+      $scope.labels = ["Lun", "Mar", "Mer", "jeu", "vend", "sam", "Dim"];
+      $scope.series = ['View'];
+
+
+   
+
+   
+    $scope.data = [data[0].view];
+
+    });
+
+
+
 })
 
 

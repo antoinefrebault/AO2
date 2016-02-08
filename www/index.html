@@ -7,6 +7,7 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/angular-chart.css">
 <!--     <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet"> -->
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -25,9 +26,14 @@
     <script src="js/ng-cordova.min.js"></script>
 
     <!-- your app's js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="js/angular-chart.js"></script>
+
+
     <script src="js/services.js"></script>
     <script src="js/app.js"></script>
     <script src="js/script.js"></script>
+
   </head>
 
   <body ng-app="starter" ng-controller="SlideController">
@@ -75,13 +81,15 @@
               </p>
             </div>
           </ion-slide>
-          <ion-slide>
+          <ion-slide ng-controller="chartController">
             <div class="box stat" on-swipe-left="previousSlide()"><h1 class="col-offset-50 white">Stat</h1>
              
              <div class="col middle">
               <h2 class="white">View</h2>
+              <canvas id="bar" class="chart chart-bar"
+  chart-data="data" chart-labels="labels"> chart-series="series">
+</canvas>
               <div class="resizing">
-                <canvas id="timeData"/>
               </div>
             </div>
 
