@@ -81,3 +81,48 @@ h1{
 .white{
 	color: #FAFAFA;
 }
+
+.upload{
+	width: 100px;
+	height: 100px;
+	/*background:#1352E2;*/
+	background: #1352e2;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.icon{
+	font-size: 90px;
+}
+
+.add{
+	width: 100px;
+	height: 100px;
+	background:#1352E2;
+	/*position: absolute;
+	bottom: 0;
+	right: 0;*/
+}
+
+.remove{
+	width: 100px;
+	height: 100px;
+	background:red;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.top-right{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.custom-icon {
+  color : white;
+}
+
+.big{
+	font-size: 40px;
+}

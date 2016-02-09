@@ -1,15 +1,15 @@
-angular.module('chartService', [])
+angular.module('uploadService', [])
 
 
-.factory('chart', function($http) {
+.factory('upload', function($http) {
 
 
 	var uploadFactory = {};
 
 	
 
-	uploadFactory.create = function() {
-		return $http.get('http://localhost:8000/api/info');
+	uploadFactory.create = function(adData) {
+		return $http.post('http://162.243.19.27:8000/api/systems', adData);
 	}
 
 

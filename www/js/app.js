@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngCordova', 'chartService','chart.js'])
+angular.module('starter', ['ionic', 'ngCordova', 'chart.js'])
 
 .run(function($ionicPlatform) {
  $ionicPlatform.ready(function() {
@@ -28,6 +28,11 @@ angular.module('starter', ['ionic', 'ngCordova', 'chartService','chart.js'])
   $scope.myActiveSlide = 1;
   
 })
+
+
+
+
+
 
 .controller("ExampleController", function($scope, $cordovaCamera, $http) {
 
@@ -140,36 +145,17 @@ $scope.sendAll = function() {
  }
 })
 
-.controller("chartController",function($scope,$http,chart){
 
-//this controller use chart service to call api with response 
-    var self = this;
+.controller("chartController",function($scope,$http){
 
 
-
-    chart.create()
-      .success(function(data) {
-        self.ads = data[0].view;
-        $scope.vide = data[0].view;
-        console.log();
-
-        // $scope.data.push($scope.vide);
-
-      $scope.labels = ["Lun", "Mar", "Mer", "jeu", "vend", "sam", "Dim"];
+  $scope.labels = ["Lun", "Mar", "Mer", "jeu", "vend", "sam", "Dim"];
       $scope.series = ['View'];
+    $scope.data = [[23,34,69,70,76,43,200]];
 
 
-   
-
-   
-    $scope.data = [data[0].view];
-
-    });
-
-
-
+    
 })
-
 
 
 

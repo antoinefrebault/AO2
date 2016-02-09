@@ -5,44 +5,33 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
+
+    <!-- Feuilles de style -->
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-<!--     <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/angular-chart.css">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-    
-    <!-- ionic/gallery -->
-   <!--  <script src="lib/ionic/js/ion-gallery.min.js"></script> -->
-    
-
-    <!-- ionic/angularjs js -->
+  
+    <!-- Script -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
     <script src="js/ng-cordova.min.js"></script>
-
-    <!-- your app's js -->
+    <script src="js/Chart.js"></script>
+    <script src="js/angular-chart.js"></script>
     <script src="js/services.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/script.js"></script>
+
+
   </head>
 
   <body ng-app="starter" ng-controller="SlideController" class="platform-ios platform-cordova platform-webview">
     <ion-nav-bar class="bar-light">
-    
     </ion-nav-bar>
 
-    <ion-nav-view view-title="Pauline app">
-    
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Pauline Camera</h1>
+    <ion-nav-view view-title="Pauline & Margaux App">
+      <ion-header-bar class="bar-calm">
+        <h1 class="title">Pauline & Margaux App</h1>
       </ion-header-bar>
-
-      
-
     </ion-nav-view>
 
     <ion-view>
@@ -60,14 +49,13 @@
 
           </ion-slide>
           <ion-slide>
-            <div class="box send" ng-controller="ExampleController" padding="true"><h1 class="col-offset-50">Story</h1>
-              <button class="button button-full button-assertive" ng-click="choosePhoto()">Choose a photo
-              </button>
-             <!--  <input type="text" ng-model="imgURI">
-              <button class="button button-full button-assertive" ng-click="submit()">Send Photo
-              </button> -->
+            <div class="box send" ng-controller="ExampleController" padding="true">
+              <h1 class="col-offset-50">Story</h1>
+              <button class="button button-icon icon ion-plus-round add custom-icon top-right" ng-click="choosePhoto()"></button>
 
-              <button class="button button-full button-assertive" ng-click="sendAll()">Send ALL
+              <button class="button button-icon icon ion-trash-b custom-icon remove"></button>
+
+              <button class="button button-icon icon ion-ios-cloud-upload upload custom-icon" ng-click="sendAll()">
               </button>
          
               <p class="gallery" ng-repeat="img in images">
@@ -75,22 +63,21 @@
               </p>
             </div>
           </ion-slide>
-          <ion-slide>
-            <div class="box stat" on-swipe-left="previousSlide()"><h1 class="col-offset-50 white">Stat</h1>
+          <ion-slide ng-controller="chartController">
+            <div class="box stat" on-swipe-left="previousSlide()">
+              <h1 class="col-offset-50 white">Stat</h1>
              
-             <div class="col middle">
-              <h2 class="white">View</h2>
-              <div class="resizing">
-                <canvas id="timeData"/>
+              <div class="col middle">
+                <h2 class="white">View</h2>
+                <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+                <h2 class="white">Total</h2>
+                <p><span class="big">144</span> euros collectés</p>
               </div>
             </div>
-
-          </div>
           </ion-slide>
         </ion-slide-box>
       </ion-content>
     </ion-view>
-
   </body>
 </html>
 
